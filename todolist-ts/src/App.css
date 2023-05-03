@@ -1,28 +1,147 @@
 .App {
-  padding: 30px;
-  display: flex;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    margin: 50px auto;
+    gap: 1px;
+    background: rgb(233, 230, 229);
+    color: rgb(70, 70, 70);
+    text-shadow: rgb(124, 124, 124);
 }
 
 .App > div {
-  margin-right: 50px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 10px;
+    background: white;
 }
 
-ul{
-  list-style: none;
+::selection {
+    background-color: rgb(248, 232, 190);
 }
+
+input, button {
+    border: 1px solid rgb(203, 203, 203);
+    border-radius: 3px;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+}
+
+ul {
+    list-style: none;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    margin-block-start: 0;
+    display: flex;
+    gap: 3px;
+    flex-direction: column;
+}
+
+li {
+    display: flex;
+    margin: 0;
+    font-size: 18px;
+    cursor: pointer;
+
+}
+
+/*******************list**********************************************/
+div.list {
+    width: 40%;
+}
+
+.list ul {
+    gap: 0;
+}
+
+.list li {
+    padding: 10px;
+    border-bottom: 1px solid rgb(247, 227, 149);
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/*******************todolist**********************************************/
+.todolist {
+    padding: 15px;
+}
+
+h3 {
+    display: flex;
+    font-size: 24px;
+    margin: 0 0 16px 0;
+}
+
+input[type='text'] {
+    height: 20px;
+    padding: 2px;
+    width: 100%;
+    margin-bottom: 5px;
+    padding-inline-start: 5px;
+}
+
+input[type='text']:focus-visible {
+    outline-color: rgb(235, 185, 44);
+    outline-width: thin;
+}
+
+.todolist li {
+    font-size: 14px;
+    background: rgba(233, 230, 229, .1);
+    border-radius: 3px;
+}
+
+.todolist li button {
+    margin-left: auto;
+    font-size: 14px;
+}
+
+.filters {
+    padding: 7px 0 15px 0;
+    display: flex;
+    gap: 5px;
+}
+
+input[type='checkbox'] {
+    width: 1em;
+    height: 1em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid rgb(212, 212, 212);
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    margin-right: 5px;
+}
+
+input[type='checkbox']:checked {
+    background-color: rgb(235, 185, 44);
+    border: none;
+}
+
+/************************classes*******************************************************/
 
 .error {
-  border: red 1px solid;
+    border: red 1px solid;
 }
 
 .error-message {
-  color: red;
+    color: red;
 }
 
 .active-filter {
-  background-color: aquamarine;
+    background-color: rgb(248, 232, 190);
 }
 
-.is-done {
-  opacity: .5;
+.is-done span {
+    text-decoration: line-through;
+}
+
+.active-li {
+    background-color: rgb(247, 227, 149);
 }

@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     width: 800px;
+    min-height: 350px;
     margin: 150px auto;
     gap: 1px;
     border: 1px solid rgb(233, 230, 229);
@@ -50,6 +51,7 @@ li {
 
 /*******************list**********************************************/
 div.list {
+    position: relative;
     width: 40%;
     border-right: 1px solid rgb(233, 230, 229);
     padding: 20px;
@@ -70,24 +72,44 @@ div.list {
 
 /*******************todolist**********************************************/
 .todolist {
+    position: relative;
     padding: 15px;
     display: flex;
     flex-direction: column;
 }
-.todolist > div{
+
+.todolist > div {
     display: flex;
     gap: 2px;
 }
 
-h3 {
-    display: inline-flex;
-    font-size: 24px;
-    margin: 0 7px 16px 0;
+/*******************title************************/
+
+.title .options {
+    position: absolute;
+    display: flex;
+    gap: 7px;
+    top: 0;
+    right: 15px;
 }
 
 .title button {
-    height: 13px;
-    width: 13px;
+    border: none;
+    width: 14px;
+    height: 14px;
+}
+
+.title button img {
+    width: 16px;
+    height: 16px;
+    opacity: .6;
+}
+
+
+h3 {
+    display: inline-flex;
+    font-size: 24px;
+    margin: 0 0 16px 0;
 }
 
 input[type='text'] {
@@ -115,6 +137,7 @@ input[type='text']:focus-visible {
     border: none;
     align-items: center;
 }
+
 .todolist li button img {
     width: 13px;
     height: 13px;
@@ -146,13 +169,47 @@ input[type='checkbox']:checked {
 }
 
 /************************classes*******************************************************/
+.add-todo {
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 13px;
+    gap: 3px;
+    font-size: 12px;
+}
+
+.add-todo button {
+    width: 14px;
+    height: 14px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 50%;
+    font-size: 12px;
+    background-color: white;
+    color: rgba(70, 70, 70, .7);
+}
+
+button.add-task {
+    width: 20px;
+    height: auto;
+    margin-bottom: 5px;
+    align-items: center;
+    color: rgb(70, 70, 70);
+}
 
 .error {
     border: red 1px solid;
 }
 
 .error-message {
+    position: absolute;
+    top: 40px;
+    right: 37px;
+
     color: red;
+    font-size: 12px;
+    align-items: flex-end;
+    align-self: flex-start;
 }
 
 .active-filter {

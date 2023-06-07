@@ -1,9 +1,18 @@
-import {createSlice} from "@reduxjs/toolkit";
 import {v1} from "uuid";
 
-const data = [
-    { title: 'Learning', items:
-                [{id: v1(), title: 'HTML&CSS', isDone: true},
+let list1 = v1();
+let list2 = v1();
+let list3 = v1();
+
+export const dataLists = [
+    {id: list1, title: 'Learning'},
+    {id: list2, title: 'Grocery list'},
+    {id: list3, title: 'Daily action plan'}
+]
+
+export const dataTasks = [
+    { id: list1, title: 'Learning', items:
+            [{id: v1(), title: 'HTML&CSS', isDone: true},
                 {id: v1(), title: 'JS', isDone: true},
                 {id: v1(), title: 'ReactJS', isDone: true},
                 {id: v1(), title: 'React Native', isDone: false},
@@ -12,8 +21,8 @@ const data = [
                 {id: v1(), title: 'TypeScript', isDone: false}]
     },
 
-    { title: 'Grocery list', items:
-                [{id: v1(), title: 'Milk', isDone: false},
+    { id: list2, title: 'Grocery list', items:
+            [{id: v1(), title: 'Milk', isDone: false},
                 {id: v1(), title: 'Fruits', isDone: true},
                 {id: v1(), title: 'Vegetables', isDone: true},
                 {id: v1(), title: 'Eggs', isDone: false},
@@ -21,8 +30,8 @@ const data = [
                 {id: v1(), title: 'Fish', isDone: true},]
     },
 
-    { title: 'Daily action plan', items:
-                [{id: v1(), title: 'Pay bills', isDone: true},
+    { id: list3, title: 'Daily action plan', items:
+            [{id: v1(), title: 'Pay bills', isDone: true},
                 {id: v1(), title: 'Grocery shopping', isDone: false},
                 {id: v1(), title: 'Exercise', isDone: false},
                 {id: v1(), title: 'Work on a project', isDone: true},
@@ -35,48 +44,3 @@ const data = [
                 {id: v1(), title: 'Learn a new language', isDone: true}]
     }
 ]
-
-
-// ****************************************************************
-export type Item = {
-    id: string
-    title: string,
-    isDone: boolean
-}
-export type Task = {
-    title: string,
-    items: Array<Item>
-}
-
-interface ITasksState {
-    current: Task,
-    tasks: Array<Task>
-}
-
-const initialCurrent: Task = {
-    title: '',
-    items: []
-}
-
-const initialState: ITasksState | undefined = {
-    current: data[0],
-    tasks: data
-}
-
-
-const counterSlice = createSlice({
-    name: 'tasks',
-    initialState,
-    reducers: {
-        changeTitle: (state, action) => {
-            state.current = state.tasks.find((el:{title:string}) => el.title === action.payload) || initialCurrent
-        },
-    },
-});
-
-export const {changeTitle} = counterSlice.actions;
-export default counterSlice.reducer;
-
-
-
-

@@ -1,13 +1,11 @@
 import {configureStore} from "@reduxjs/toolkit";
 import { useDispatch } from 'react-redux';
-import list from "./list";
-import tasks from "./tasks";
+import todo from "./todo";
 
 
 export const store = configureStore({
     reducer: {
-        list,
-        tasks,
+        todo,
     },
     devTools: true
 });
